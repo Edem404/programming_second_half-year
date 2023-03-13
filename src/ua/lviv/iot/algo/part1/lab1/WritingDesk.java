@@ -28,30 +28,28 @@ public class WritingDesk {
     public void adjustHeight(int centimeters) {
         if (currentHeight + centimeters > maxHeight) {
             return;
-        } else {
-            currentHeight += centimeters;
         }
+            currentHeight += centimeters;
 
-    }
+        }
+        // decrease current height of writing desk but not lower than 0
+        public void moveDawn ( int centimeters){
+            if (currentHeight - centimeters < 0) {
+                return;
+            }
 
-    // decrease current height of writing desk but not lower than 0
-    public void moveDawn(int centimeters) {
-        if (currentHeight - centimeters < 0) {
-            return;
-        } else {
             currentHeight -= centimeters;
         }
-    }
 
-    public static void main(String[] args) {
-        WritingDesk[] arrayOfWritingDesks = new WritingDesk[4];
-        arrayOfWritingDesks[0] = new WritingDesk(3, true, 200, 120, 150);
-        arrayOfWritingDesks[1] = new WritingDesk();
-        arrayOfWritingDesks[2] = getInstance();
-        arrayOfWritingDesks[3] = getInstance();
+        public static void main (String[]args){
+            WritingDesk[] arrayOfWritingDesks = new WritingDesk[4];
+            arrayOfWritingDesks[0] = new WritingDesk(3, true, 200, 120, 150);
+            arrayOfWritingDesks[1] = new WritingDesk();
+            arrayOfWritingDesks[2] = getInstance();
+            arrayOfWritingDesks[3] = getInstance();
 
-        for (WritingDesk i : arrayOfWritingDesks) {
-            System.out.println(i.toString());
+            for (WritingDesk writingDesk : arrayOfWritingDesks) {
+                System.out.println(i.toString());
+            }
         }
     }
-}
