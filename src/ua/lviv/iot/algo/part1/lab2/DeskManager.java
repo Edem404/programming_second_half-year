@@ -11,7 +11,7 @@ import lombok.*;
 @Getter
 @ToString
 public class DeskManager{
-    private static List<Desk> desks = new ArrayList<Desk>();
+    private static List <Desk> desks = new ArrayList<Desk>();
 
     public void addDesk(final Desk desk)
     {
@@ -35,8 +35,8 @@ public class DeskManager{
         Desk computerDeskSecond = new ComputerDesk(60,120,135,145,120,3,true);
         Desk dressingTableFirst = new DressingTable(80, 40,140,165,120,6,"ellipse");
         Desk dressingTableSecond =  new DressingTable(60, 90,135,145,110,4,"circle");
-        Desk coffeeTableFirst = new CoffeeTable(70,50,120,130,90,7,140.5,0);
-        Desk coffeeTableSecond = new CoffeeTable(50,50,80,100,80,13,90.7,0);
+        Desk coffeeTableFirst = new CoffeeTable(70,50,120,130,90,0,140.5,4);
+        Desk coffeeTableSecond = new CoffeeTable(50,50,80,100,80,0,90.7,7);
 
         DeskManager deskManager = new DeskManager();
 

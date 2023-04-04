@@ -7,20 +7,18 @@ import lombok.*;
 @Setter
 @Getter
 public class ComputerDesk extends Desk{
-    private int numOfDrawers;
+
     private boolean hasKeyboardTray;
 
     public ComputerDesk(int width, int length, int height, int maxHeight, int minHeight, int numOfDrawers, boolean hasKeyboardTray) {
-        super(width, length, height, maxHeight, minHeight);
+        super(width, length, height, maxHeight, minHeight, numOfDrawers);
 
-        this.numOfDrawers = numOfDrawers;
         this.hasKeyboardTray = hasKeyboardTray;
     }
 
     @Override
     public String toString() {
         return "ComputerDesk{" + super.toString() +
-                "numberOfDrawers=" + numOfDrawers +
                 ", hasKeyboardTray=" + hasKeyboardTray +
                 '}';
     }

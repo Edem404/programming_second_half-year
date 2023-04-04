@@ -14,6 +14,7 @@ public abstract class Desk {
     private int height;
     private int maxHeight;
     private int minHeight;
+    private int numOfDrawers;
 
     public abstract void adjustHeight(int centimeters);
 

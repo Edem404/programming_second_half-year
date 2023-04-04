@@ -8,7 +8,6 @@ import lombok.*;
 @Setter
 @Getter
 public class WritingDesk extends Desk {
-    private int numOfDrawers;
 
     private boolean hasKeyboardTrey;
 
@@ -21,9 +20,8 @@ public class WritingDesk extends Desk {
     }
 
     public WritingDesk(int width, int length, int height, int maxHeight, int minHeight, int numOfDrawers, boolean hasKeyboardTrey, int maxWeightCapacity) {
-        super(width, length, height, maxHeight, minHeight);
+        super(width, length, height, maxHeight, minHeight, numOfDrawers);
 
-        this.numOfDrawers = numOfDrawers;
         this.hasKeyboardTrey = hasKeyboardTrey;
         this.maxWeightCapacity = maxWeightCapacity;
     }
@@ -32,7 +30,6 @@ public class WritingDesk extends Desk {
     @Override
     public String toString() {
         return "WritingDesk{" + super.toString() +
-                "numberOfDrawers=" + numOfDrawers +
                 ", hasKeyboardTrey=" + hasKeyboardTrey +
                 ", maxWeightCapacity=" + maxWeightCapacity +
                 "}" ;

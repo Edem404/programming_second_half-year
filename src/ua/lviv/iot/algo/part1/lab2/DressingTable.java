@@ -8,22 +8,16 @@ import lombok.*;
 @Getter
 
 public class DressingTable extends Desk{
-    private int numOfDrawers;
     private String mirrorShape;
-
-
-
     public DressingTable(int width, int length, int height, int maxHeight, int minHeight, int numOfDrawers, String mirrorShape) {
-        super(width, length, height, maxHeight, minHeight);
+        super(width, length, height, maxHeight, minHeight,numOfDrawers);
 
-        this.numOfDrawers = numOfDrawers;
         this.mirrorShape = mirrorShape;
     }
 
     @Override
     public String toString() {
         return "DressingTable{" + super.toString() +
-                "numberOfDrawers=" + numOfDrawers +
                 ", mirrorShape='" + mirrorShape + '\'' +
                 '}';
     }

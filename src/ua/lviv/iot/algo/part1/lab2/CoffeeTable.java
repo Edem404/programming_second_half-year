@@ -7,16 +7,13 @@ import lombok.*;
 @Setter
 @Getter
 public class CoffeeTable extends Desk{
-    private int numOfJournals;
     private double areaOfSurface;
-    private int numOfDrawers;
+    private int numOfJournals;
 
-    public CoffeeTable(int width, int length, int height, int maxHeight, int minHeight, int numOfJournals, double areaOfSurface, int numOfDrawers) {
-        super(width, length, height, maxHeight, minHeight);
+    public CoffeeTable(int width, int length, int height, int maxHeight, int minHeight, int numOfDrawers, double areaOfSurface, int numOfJournals) {
+        super(width, length, height, maxHeight, minHeight,numOfDrawers);
 
-        this.numOfJournals = numOfJournals;
         this.areaOfSurface = areaOfSurface;
-        this.numOfDrawers = numOfDrawers;
     }
 
     @Override
@@ -24,7 +21,6 @@ public class CoffeeTable extends Desk{
         return "CoffeeTable{" + super.toString() +
                 "numOfJournals=" + numOfJournals +
                 ", areaOfSurface=" + areaOfSurface +
-                ", numOfDrawers=" + numOfDrawers +
                 '}';
     }
 
