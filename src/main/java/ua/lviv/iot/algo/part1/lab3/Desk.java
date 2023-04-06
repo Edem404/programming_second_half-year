@@ -1,6 +1,10 @@
-package ua.lviv.iot.algo.part1.lab2;
+package ua.lviv.iot.algo.part1.lab3;
 
-import lombok.*;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Setter;
+import lombok.Getter;
+import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,6 +18,7 @@ public abstract class Desk {
     private int height;
     private int maxHeight;
     private int minHeight;
+
     private int numOfDrawers;
 
     public abstract void adjustHeight(int centimeters);
