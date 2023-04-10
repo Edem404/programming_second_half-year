@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DeskManagerTest {
 
-    DeskManager deskManagerForTest = new DeskManager();
+    private DeskManager deskManagerForTest = new DeskManager();
 
     @Test
-    void testAddDesk() {
+    public void testAddDesk() {
         deskManagerForTest.addDesk(new WritingDesk(40,50,120,200,110,2,true,300));
         assertEquals(1, deskManagerForTest.getDesks().size());
         assertTrue(deskManagerForTest.getDesks().contains(deskManagerForTest.getDesks().get(0)));
@@ -21,7 +21,7 @@ class DeskManagerTest {
     }
 
     @Test
-    void findAllWithMinHeightGreaterThan() {
+    public void findAllWithMinHeightGreaterThan() {
         deskManagerForTest.addDesk(new WritingDesk(40,50,120,200,110,2,true,300));
         deskManagerForTest.addDesk(new WritingDesk(50,60,100,180,100,2,true,250));
         List<Desk> foundedDesksByMinHeightGreaterThanFirst = deskManagerForTest.findAllWithMinHeightGreaterThan(105);
@@ -29,7 +29,7 @@ class DeskManagerTest {
     }
 
     @Test
-    void findAllWithWidthMoreThan() {
+    public void findAllWithWidthMoreThan() {
         deskManagerForTest.addDesk(new WritingDesk(40,50,120,200,110,2,true,300));
         deskManagerForTest.addDesk(new WritingDesk(50,60,100,180,100,2,true,250));
         List<Desk> foundedDesksByWidthMoreThan = deskManagerForTest.findAllWithWidthMoreThan(35);
