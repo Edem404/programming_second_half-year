@@ -24,4 +24,19 @@ public abstract class Desk {
     public abstract void adjustHeight(int centimeters);
 
     public abstract void moveDown(int centimeters);
+
+    public abstract String getTypeOfDesk();
+
+    public String getHeaders() {
+        return "width, length, height, maxHeight, minHeight, numOfDrawers, ";
+    }
+
+    public String toCSV() {
+        return width + ", "
+                + length + ", "
+                + height + ", "
+                + maxHeight + ", "
+                + minHeight + ", "
+                + numOfDrawers;
+    }
 }

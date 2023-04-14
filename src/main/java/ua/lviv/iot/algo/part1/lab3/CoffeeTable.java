@@ -43,4 +43,21 @@ public class CoffeeTable extends Desk {
         }
         setHeight(getHeight() - centimeters);
     }
+
+    @Override
+    public String getTypeOfDesk() {
+        return "Coffee table";
+    }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + "areaOfSurface, numOfJournals";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + ", "
+                + areaOfSurface + ", "
+                + numOfJournals;
+    }
 }

@@ -8,7 +8,7 @@ import lombok.Getter;
 
 @Getter
 public class DeskManager {
-    private List <Desk> desks = new ArrayList<>();
+    private List<Desk> desks = new ArrayList<>();
 
     public void addDesk(final Desk desk) {
         desks.add(desk);
@@ -25,4 +25,5 @@ public class DeskManager {
                 .filter(desks -> desks.getWidth() > widthInCentimeters)
                 .collect(Collectors.toList());
     }
+
 }

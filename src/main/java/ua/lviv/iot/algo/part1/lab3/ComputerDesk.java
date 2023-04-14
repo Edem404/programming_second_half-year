@@ -42,4 +42,20 @@ public class ComputerDesk extends Desk {
         }
         setHeight(getHeight() - centimeters);
     }
+
+    @Override
+    public String getTypeOfDesk() {
+        return "Computer desk";
+    }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + "hasKeyboardTrey";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + ", "
+                + hasKeyboardTray;
+    }
 }

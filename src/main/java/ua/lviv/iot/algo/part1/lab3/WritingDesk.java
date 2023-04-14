@@ -45,4 +45,21 @@ public class WritingDesk extends Desk {
         }
         setHeight(getHeight() - centimeters);
     }
+
+    @Override
+    public String getTypeOfDesk() {
+        return "Writing desk";
+    }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + "hasKeyboardTrey, maxWeightCapacity";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + ", "
+                + hasKeyboardTrey + ", "
+                + maxWeightCapacity;
+    }
 }

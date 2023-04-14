@@ -14,7 +14,7 @@ public class DressingTable extends Desk {
     public DressingTable(final int width, final int length, final int height,
                          final int maxHeight, final int minHeight,
                          final int numOfDrawers, final String mirrorShape) {
-        super(width, length, height, maxHeight, minHeight,numOfDrawers);
+        super(width, length, height, maxHeight, minHeight, numOfDrawers);
 
         this.mirrorShape = mirrorShape;
     }
@@ -40,5 +40,21 @@ public class DressingTable extends Desk {
             return;
         }
         setHeight(getHeight() - centimeters);
+    }
+
+    @Override
+    public String getTypeOfDesk() {
+        return "Dressing table";
+    }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + "mirrorShape";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + ", "
+                + mirrorShape;
     }
 }

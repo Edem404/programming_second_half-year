@@ -1,6 +1,5 @@
 package ua.lviv.iot.algo.part1.lab3;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 

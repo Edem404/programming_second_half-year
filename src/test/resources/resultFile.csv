@@ -1,0 +1,16 @@
+Writing desk
+width, length, height, maxHeight, minHeight, numOfDrawers, hasKeyboardTrey, maxWeightCapacity
+40, 50, 120, 200, 110, 2, true, 300
+50, 60, 140, 180, 100, 2, true, 250
+Computer desk
+width, length, height, maxHeight, minHeight, numOfDrawers, hasKeyboardTrey
+70, 90, 140, 200, 100, 3, false
+60, 120, 135, 145, 120, 3, true
+Dressing table
+width, length, height, maxHeight, minHeight, numOfDrawers, mirrorShape
+80, 40, 140, 165, 120, 6, ellipse
+60, 90, 135, 145, 110, 4, circle
+Coffee table
+width, length, height, maxHeight, minHeight, numOfDrawers, areaOfSurface, numOfJournals
+70, 50, 120, 130, 90, 0, 140.5, 4
+50, 50, 80, 100, 80, 0, 90.7, 7
