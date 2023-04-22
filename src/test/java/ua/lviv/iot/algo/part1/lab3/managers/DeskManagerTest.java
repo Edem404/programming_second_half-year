@@ -1,7 +1,10 @@
-package ua.lviv.iot.algo.part1.lab3;
+package ua.lviv.iot.algo.part1.lab3.managers;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import ua.lviv.iot.algo.part1.lab3.maneger.DeskManager;
+import ua.lviv.iot.algo.part1.lab3.models.Desk;
+import ua.lviv.iot.algo.part1.lab3.models.WritingDesk;
 
 import java.util.List;
 

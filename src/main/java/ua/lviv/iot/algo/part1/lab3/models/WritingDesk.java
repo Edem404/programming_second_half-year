@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab3;
+package ua.lviv.iot.algo.part1.lab3.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -7,25 +7,28 @@ import lombok.Getter;
 @AllArgsConstructor
 @Setter
 @Getter
-public class CoffeeTable extends Desk {
-    private double areaOfSurface;
-    private int numOfJournals;
+public class WritingDesk extends Desk {
 
-    public CoffeeTable(final int width, final int length, final int height,
+    private boolean hasKeyboardTrey;
+
+    private int maxWeightCapacity;
+
+    public WritingDesk(final int width, final int length, final int height,
                        final int maxHeight, final int minHeight, final int numOfDrawers,
-                       final double areaOfSurface, final int numOfJournals) {
+                       final boolean hasKeyboardTrey, final int maxWeightCapacity) {
         super(width, length, height, maxHeight, minHeight, numOfDrawers);
 
-        this.numOfJournals = numOfJournals;
-        this.areaOfSurface = areaOfSurface;
+        this.hasKeyboardTrey = hasKeyboardTrey;
+        this.maxWeightCapacity = maxWeightCapacity;
     }
+
 
     @Override
     public String toString() {
-        return "CoffeeTable{" + super.toString()
-                + "areaOfSurface=" + areaOfSurface
-                + ", numOfJournals=" + numOfJournals
-                + '}';
+        return "WritingDesk{" + super.toString()
+                + ", hasKeyboardTrey=" + hasKeyboardTrey
+                + ", maxWeightCapacity=" + maxWeightCapacity
+                + "}";
     }
 
     @Override
@@ -45,19 +48,14 @@ public class CoffeeTable extends Desk {
     }
 
     @Override
-    public String getTypeOfDesk() {
-        return "Coffee table";
-    }
-
-    @Override
     public String getHeaders() {
-        return super.getHeaders() + "areaOfSurface, numOfJournals";
+        return super.getHeaders() + "hasKeyboardTrey, maxWeightCapacity";
     }
 
     @Override
     public String toCSV() {
         return super.toCSV() + ", "
-                + areaOfSurface + ", "
-                + numOfJournals;
+                + hasKeyboardTrey + ", "
+                + maxWeightCapacity;
     }
 }

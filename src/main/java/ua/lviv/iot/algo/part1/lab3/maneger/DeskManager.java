@@ -1,4 +1,6 @@
-package ua.lviv.iot.algo.part1.lab3;
+package ua.lviv.iot.algo.part1.lab3.maneger;
+
+import ua.lviv.iot.algo.part1.lab3.models.Desk;
 
 import java.util.ArrayList;
 import java.util.List;

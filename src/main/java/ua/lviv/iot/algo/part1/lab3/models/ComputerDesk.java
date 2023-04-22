@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab3;
+package ua.lviv.iot.algo.part1.lab3.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -7,22 +7,23 @@ import lombok.Getter;
 @AllArgsConstructor
 @Setter
 @Getter
-public class DressingTable extends Desk {
+public class ComputerDesk extends Desk {
 
-    private String mirrorShape;
+    private boolean hasKeyboardTray;
 
-    public DressingTable(final int width, final int length, final int height,
-                         final int maxHeight, final int minHeight,
-                         final int numOfDrawers, final String mirrorShape) {
+    public ComputerDesk(final int width, final int length, final int height,
+                        final int maxHeight, final int minHeight,
+                        final int numOfDrawers, final boolean hasKeyboardTray) {
+
         super(width, length, height, maxHeight, minHeight, numOfDrawers);
 
-        this.mirrorShape = mirrorShape;
+        this.hasKeyboardTray = hasKeyboardTray;
     }
 
     @Override
     public String toString() {
-        return "DressingTable{" + super.toString()
-                + ", mirrorShape='" + mirrorShape + '\''
+        return "ComputerDesk{" + super.toString()
+                + ", hasKeyboardTray=" + hasKeyboardTray
                 + '}';
     }
 
@@ -42,19 +43,15 @@ public class DressingTable extends Desk {
         setHeight(getHeight() - centimeters);
     }
 
-    @Override
-    public String getTypeOfDesk() {
-        return "Dressing table";
-    }
 
     @Override
     public String getHeaders() {
-        return super.getHeaders() + "mirrorShape";
+        return super.getHeaders() + "hasKeyboardTrey";
     }
 
     @Override
     public String toCSV() {
         return super.toCSV() + ", "
-                + mirrorShape;
+                + hasKeyboardTray;
     }
 }
