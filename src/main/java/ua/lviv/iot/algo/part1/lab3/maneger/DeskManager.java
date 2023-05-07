@@ -27,5 +27,4 @@ public class DeskManager {
                 .filter(desks -> desks.getWidth() > widthInCentimeters)
                 .collect(Collectors.toList());
     }
-
 }

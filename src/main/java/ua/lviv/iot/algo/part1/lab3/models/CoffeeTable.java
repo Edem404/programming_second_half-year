@@ -1,13 +1,16 @@
 package ua.lviv.iot.algo.part1.lab3.models;
 
+import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.Getter;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class CoffeeTable extends Desk {
+    private Integer ID;
     private double areaOfSurface;
     private int numOfJournals;
 
