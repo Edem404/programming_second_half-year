@@ -1,62 +1,66 @@
 package ua.lviv.iot.algo.part1.lab3.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import ua.lviv.iot.algo.part1.lab3.models.CoffeeTable;
 import ua.lviv.iot.algo.part1.lab3.service.CoffeeTableService;
 
-import java.util.Collection;
+import java.util.List;
 
-import lombok.Getter;
-
-@Getter
 @RestController
 @RequestMapping(path = "desks")
 public class CoffeeTableController {
 
-    private CoffeeTableService coffeeTableService = new CoffeeTableService();
+    @Autowired
+    private CoffeeTableService coffeeTableService;
 
-    @GetMapping(path = "getAll")
-    public Collection<CoffeeTable> getCoffeeTables() {
-        return coffeeTableService.getCoffeeTableMap().values();
+    @GetMapping
+    public List<CoffeeTable> getCoffeeTables() {
+        return coffeeTableService.getAllCoffeeTables();
     }
 
-    @GetMapping(path = "getById/{id}")
-    public ResponseEntity<CoffeeTable> getCoffeeTableById(@PathVariable("id") Integer coffeeTableId) {
-        if(coffeeTableService.getCoffeeTableMap().get(coffeeTableId) == null) {
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<CoffeeTable> getCoffeeTableById(@PathVariable("id") final Integer coffeeTableId) {
+        if (coffeeTableService.getCoffeeTableById(coffeeTableId) == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
-        return new ResponseEntity<>(coffeeTableService.getCoffeeTableMap().get(coffeeTableId), HttpStatus.OK);
+        return new ResponseEntity<>(coffeeTableService.getCoffeeTableById(coffeeTableId), HttpStatus.OK);
     }
 
-    @PostMapping(path = "post")
-    public CoffeeTable createCoffeeTable(@RequestBody CoffeeTable coffeeTable) {
+    @PostMapping
+    public CoffeeTable createCoffeeTable(@RequestBody final CoffeeTable coffeeTable) {
+        coffeeTableService.addToMap(coffeeTable);
 
-        coffeeTable.setID(coffeeTableService.getNextAvailableId().getAndIncrement());
-        coffeeTableService.getCoffeeTableMap().put(coffeeTable.getID(), coffeeTable);
         return coffeeTable;
     }
 
-    @DeleteMapping(path = "del/{id}")
-    public ResponseEntity<CoffeeTable> deleteCoffeeTable(@PathVariable("id") Integer coffeeTableId) {
-        if (coffeeTableService.getCoffeeTableMap().remove(coffeeTableId) == null) {
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<CoffeeTable> deleteCoffeeTable(@PathVariable("id") final Integer coffeeTableId) {
+        if (coffeeTableService.deleteCoffeeTable(coffeeTableId) == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @PutMapping(path = "put/{id}")
-    public ResponseEntity<CoffeeTable> updateCoffeeTable(@RequestBody CoffeeTable coffeeTable, @PathVariable("id") Integer coffeeTableId) {
-
-        if (!coffeeTableService.getCoffeeTableMap().containsKey(coffeeTableId)) {
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<CoffeeTable> updateCoffeeTable(@RequestBody final CoffeeTable coffeeTable,
+                                                         @PathVariable("id") final Integer coffeeTableId) {
+        if (coffeeTableService.getCoffeeTableById(coffeeTableId) == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        coffeeTable.setID(coffeeTableId);
-        coffeeTableService.getCoffeeTableMap().put(coffeeTableId, coffeeTable);
+        coffeeTableService.updateCoffeeTable(coffeeTable, coffeeTableId);
 
-        return new ResponseEntity<>(coffeeTableService.getCoffeeTableMap().get(coffeeTableId), HttpStatus.OK);
+        return new ResponseEntity<>(coffeeTableService.getCoffeeTableById(coffeeTableId), HttpStatus.OK);
     }
 }

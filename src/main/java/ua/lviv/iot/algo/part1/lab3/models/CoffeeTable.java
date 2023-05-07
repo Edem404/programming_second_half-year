@@ -10,7 +10,7 @@ import lombok.Getter;
 @Setter
 @Getter
 public class CoffeeTable extends Desk {
-    private Integer ID;
+    private Integer id;
     private double areaOfSurface;
     private int numOfJournals;
 
