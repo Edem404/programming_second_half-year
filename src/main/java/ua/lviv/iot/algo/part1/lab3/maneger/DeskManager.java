@@ -1,4 +1,6 @@
-package ua.lviv.iot.algo.part1.lab3;
+package ua.lviv.iot.algo.part1.lab3.maneger;
+
+import ua.lviv.iot.algo.part1.lab3.models.Desk;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +10,7 @@ import lombok.Getter;
 
 @Getter
 public class DeskManager {
-    private List <Desk> desks = new ArrayList<>();
+    private List<Desk> desks = new ArrayList<>();
 
     public void addDesk(final Desk desk) {
         desks.add(desk);
@@ -25,4 +27,5 @@ public class DeskManager {
                 .filter(desks -> desks.getWidth() > widthInCentimeters)
                 .collect(Collectors.toList());
     }
+
 }

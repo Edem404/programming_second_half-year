@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab3;
+package ua.lviv.iot.algo.part1.lab3.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -42,5 +42,17 @@ public class CoffeeTable extends Desk {
             return;
         }
         setHeight(getHeight() - centimeters);
+    }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + "areaOfSurface, numOfJournals";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + ", "
+                + areaOfSurface + ", "
+                + numOfJournals;
     }
 }

@@ -1,8 +1,9 @@
-package ua.lviv.iot.algo.part1.lab3;
+package ua.lviv.iot.algo.part1.lab3.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.Getter;
+
 @AllArgsConstructor
 @Setter
 @Getter
@@ -44,5 +45,17 @@ public class WritingDesk extends Desk {
             return;
         }
         setHeight(getHeight() - centimeters);
+    }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + "hasKeyboardTrey, maxWeightCapacity";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + ", "
+                + hasKeyboardTrey + ", "
+                + maxWeightCapacity;
     }
 }
