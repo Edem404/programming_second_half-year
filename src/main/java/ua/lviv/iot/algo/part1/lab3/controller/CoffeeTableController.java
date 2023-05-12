@@ -39,7 +39,7 @@ public class CoffeeTableController {
 
     @PostMapping
     public CoffeeTable createCoffeeTable(@RequestBody final CoffeeTable coffeeTable) {
-        coffeeTableService.addToMap(coffeeTable);
+        coffeeTableService.add(coffeeTable);
 
         return coffeeTable;
     }

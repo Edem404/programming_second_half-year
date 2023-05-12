@@ -14,7 +14,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Service
 @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class CoffeeTableService {
-
     private final Map<Integer, CoffeeTable> coffeeTableMap = new HashMap<>();
     private final AtomicInteger nextAvailableId = new AtomicInteger(1);
 
@@ -26,7 +25,7 @@ public class CoffeeTableService {
         return coffeeTableMap.get(id);
     }
 
-    public void addToMap(final CoffeeTable coffeeTable) {
+    public void add(final CoffeeTable coffeeTable) {
         coffeeTable.setId(nextAvailableId.getAndIncrement());
         coffeeTableMap.put(coffeeTable.getId(), coffeeTable);
     }
