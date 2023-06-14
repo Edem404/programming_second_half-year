@@ -49,7 +49,7 @@ public class WritingDesk {
             arrayOfWritingDesks[3] = getInstance();
 
             for (WritingDesk writingDesk : arrayOfWritingDesks) {
-                System.out.println(i.toString());
+                System.out.println(writingDesk.toString());
             }
         }
     }
