@@ -1,13 +1,17 @@
 package ua.lviv.iot.algo.part1.lab3.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.Getter;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class CoffeeTable extends Desk {
+    private Integer id;
     private double areaOfSurface;
     private int numOfJournals;
 
@@ -45,6 +49,7 @@ public class CoffeeTable extends Desk {
     }
 
     @Override
+    @JsonIgnore
     public String getHeaders() {
         return super.getHeaders() + "areaOfSurface, numOfJournals";
     }
